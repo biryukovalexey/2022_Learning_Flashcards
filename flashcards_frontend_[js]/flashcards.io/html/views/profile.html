@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+
+    <link rel="icon" href="../assets/icon.ico" type="image/icon type">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="..\styles\style.css">
+    <title>flashcards</title>
+
+    <script src="..\app\env.js" ></script>
+    <script src="..\app\cookie.js" ></script>
+    <script src="..\app\utilities.js" ></script>
+    <script src="..\app\request_handler.js" ></script>
+	<script src="..\app\authentication_handler.js" ></script>
+
+    <script>
+
+        Utilities.start_connection_checker()
+        
+        let request_handler = new Request_handler
+        let authentication_handler = new Authentication_handler
+
+        const profile_pic_url = request_handler.get_profile_pic(true)
+        
+    </script>
+
+</head>
+<body>
+
+    <div id="connection_lost">
+            <button class="connection_lost" style="cursor: default;"> <p style='font-weight: bold;'>server connection lost</p><p>trying to reconnect... </p></button>
+    </div>
+
+    <div style="margin: 0 auto; width: 500px;">
+        <div id="full_header"> </div>
+    </div>
+
+    
+
+    <div class="container">
+        
+   
+        <br><br>
+
+        <button class="button_white" onclick="location.href='edit_profile.html'" style="margin-right: 10px;"> edit profile </button>
+        <button class="button_white" onclick="authentication_handler.log_out()" style="margin-left: 10px;"> log out </button>
+
+        <br><br><br>
+        <div id="profile_pic_preview_div"></div>
+
+        <br><br>
+
+    </div>
+
+    
+
+</body>
+</html>

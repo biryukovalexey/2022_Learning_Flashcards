@@ -1,0 +1,217 @@
+h1 {
+	font-family: 'Rajdhani', sans-serif;
+	padding: 0;
+	margin: 20px;
+}
+
+#title {
+	margin-right:auto;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+h2, label, p, button {
+	font-size: 20px;
+	font-family: 'Quicksand', sans-serif;
+}
+
+p {
+	margin: 10px;
+}
+
+.container {
+	text-align: center;
+	background-color: #f7f2fc;
+	width: 500px;
+	margin: 0 auto;
+	box-shadow:	inset 0px 0px 30px #ccc5d4;
+	border-radius: 30px;
+}
+
+.deck_small {
+	background-color: white;
+	width: 180px;
+	margin: 0 auto;
+	box-shadow: 0px 0px 30px #ccc5d4;
+	border-radius: 15px;
+	margin: 10px;
+
+	display: inline-block;
+}
+
+.deck_small:hover{
+	background-color: #f9f5fc;
+}
+
+.deck_small:hover .deck_button{
+	visibility: visible;
+}
+
+form {
+	text-align: center;
+}
+
+input, textarea {
+	text-align: center;
+	padding: 5px;
+	background-color : #f7f2fc;
+	border: 1px solid black;
+	border-radius: 10px;
+	font-family: 'Rajdhani', sans-serif;
+	font-size: 17px;
+}
+
+.connection_lost {
+	color: #b5381f;
+	font-size: 17px;
+	padding: 40px;
+	background-color : white;
+	border:0px;
+	box-shadow: 0px 0px 20px #424242;
+	border-radius: 10px;
+
+	position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.button_white {
+	font-size: 17px;
+	padding: 8px;
+	padding-right: 20px;
+	padding-left: 20px;
+	background-color : white;
+	border:0px;
+	box-shadow: 0px 0px 20px #ccc5d4;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.button_white:hover {
+	background-color : #f9f5fc;
+}
+
+#error_p {
+	color: #b5381f;
+}
+
+.icon {
+	width: 65px;
+	height: 65px;
+	border-radius: 100px;
+}
+
+.deck_cover_small {
+	width: 145px;
+	height: 145px;
+	border-radius: 10px;
+}
+
+#profile_pic {
+	margin-top: 5px;
+	text-align: right;
+	cursor: pointer;
+}
+
+#profile_name{
+	margin-top: 25px;
+	text-align: right;
+	cursor: pointer;
+}
+
+#-full_header {
+	display: inline-flex;
+}
+
+#full_header {
+	display:-webkit-flex;
+    display:flex;
+    list-style-type:none;
+    padding:0;
+    justify-content:flex-end;
+}
+
+.preview_profile_pic {
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+
+}
+
+#delete_button {
+	color: #b5381f;
+}
+
+.deck_button {
+	visibility: hidden;
+	margin: 5px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.show_password_button {
+	height: 30px;
+	width: 30px;
+	margin-top: px;
+	margin-left: 5px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+textarea {
+	text-align: left;
+}
+
+.img_input {
+	width: 210px;
+}
+
+.white_space {
+	margin: 0 auto;
+	width: 450px;
+	background-color: white;
+	box-shadow: 0px 0px 20px #ccc5d4;
+	border-radius: 10px;
+}
+
+hr {
+	width: 380px;
+}
+
+.card_delete_button {
+	margin-left: 317px;
+	color: #b5381f;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.card_pic {
+	max-width: 440px;
+	border-radius: 10px;
+}
+
+.recall_rate_button {
+	display: inline-block;
+	margin: 10px;
+}
+
+#connection_lost {
+	visibility: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(49, 32, 69, 0.6);
+}
+
+#connection_lost_p {
+	background-color: white;
+	width: 300px;
+	height: 300px;
+	color: #b5381f;
+}

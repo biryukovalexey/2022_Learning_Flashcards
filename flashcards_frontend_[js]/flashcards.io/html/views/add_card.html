@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+
+    <link rel="icon" href="../assets/icon.ico" type="image/icon type">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="..\styles\style.css">
+    <title>flashcards</title>
+
+    <script src="..\app\env.js" ></script>
+    <script src="..\app\cookie.js" ></script>
+    <script src="..\app\utilities.js" ></script>
+    <script src="..\app\request_handler.js" ></script>
+	<script src="..\app\authentication_handler.js" ></script>
+
+    <script>
+
+        Utilities.start_connection_checker()
+        
+        let request_handler = new Request_handler
+        let authentication_handler = new Authentication_handler
+
+        const profile_pic_url = request_handler.get_profile_pic()
+
+    </script>
+
+</head>
+<body>
+
+    <div id="connection_lost">
+            <button class="connection_lost" style="cursor: default;"> <p style='font-weight: bold;'>server connection lost</p><p>trying to reconnect... </p></button>
+    </div>
+
+    <div style="margin: 0 auto; width: 500px;">
+        <div id="full_header"> </div>
+    </div>
+
+    
+
+    <div class="container">
+        
+   
+        <br>
+
+        <form id="new_card_form1" autocomplete="off">
+          <p>( all fields are optional ) </p>
+          <br>
+          <p> front side text</p>
+          <textarea id="text_f" name="text_f" rows="4" cols="45" maxlength="5000"></textarea><br>
+        </form>
+
+          <p>front side pictures</p>
+          <input class="img_input" id="imginput_f1" type="file" name="imginput_f1" accept="image/png, image/gif, image/jpeg" />
+          <input class="img_input" id="imginput_f2" type="file" name="imginput_f2" accept="image/png, image/gif, image/jpeg" />
+
+          <br><br>
+          <br>
+        <form id="new_card_form2" autocomplete="off">
+          <p> flip side text</p>
+          <textarea id="text_b" name="text_b" rows="4" cols="45" maxlength="5000"></textarea><br>
+          
+        </form>
+
+          <p>flip side pictures </p>
+          <input class="img_input" id="imginput_b1" type="file" name="imginput_b1" accept="image/png, image/gif, image/jpeg" />
+          <input class="img_input" id="imginput_b2" type="file" name="imginput_b2" accept="image/png, image/gif, image/jpeg" />
+
+        <br><br>
+
+        <div id="error_div"></div>
+
+        <br>
+
+        <button class="button_white" onclick="request_handler.add_card(document.getElementById('new_card_form1'),document.getElementById('new_card_form2'))" style="margin-right: 10px;"> create card </button>
+
+        
+
+        <br><br><br>
+
+    </div>
+
+    
+
+</body>
+</html>

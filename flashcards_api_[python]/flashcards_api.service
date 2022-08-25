@@ -1,0 +1,10 @@
+[Unit]
+Description=flashcards_api
+
+[Service]
+Type=simple
+WorkingDirectory=/home/a/flashcards_api/app
+ExecStart=/home/anaconda/envs/flashcards/bin/python main.py
+
+[Install]
+WantedBy=multi-user.target

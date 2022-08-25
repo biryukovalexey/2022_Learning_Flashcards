@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+
+    <link rel="icon" href="../assets/icon.ico" type="image/icon type">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="..\styles\style.css">
+    <title>flashcards</title>
+
+    <script src="..\app\env.js" ></script>
+    <script src="..\app\cookie.js" ></script>
+    <script src="..\app\utilities.js" ></script>
+    <script src="..\app\request_handler.js" ></script>
+	<script src="..\app\authentication_handler.js" ></script>
+    <script src="..\app\display_handler.js" ></script>
+
+    <script>
+
+        Utilities.start_connection_checker()
+        
+        let request_handler = new Request_handler
+        let authentication_handler = new Authentication_handler
+        let display_handler = new Display_handler
+
+        const profile_pic_url = request_handler.get_profile_pic()
+
+        display_handler.print_card_side()
+
+        
+    </script>
+
+</head>
+<body>
+
+    <div id="connection_lost">
+            <button class="connection_lost" style="cursor: default;"> <p style='font-weight: bold;'>server connection lost</p><p>trying to reconnect... </p></button>
+    </div>
+
+    <div style="margin: 0 auto; width: 500px;">
+        <div id="full_header"> </div>
+    </div>
+
+    
+
+    <div class="container">
+        <br>
+   
+        <br>
+
+        <div id="cards_div_outer"><div id="cards_div"></div></div>
+
+
+        <br><br><br>
+
+
+    </div>
+
+    
+
+</body>
+</html>

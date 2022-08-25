@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+
+    <link rel="icon" href="../assets/icon.ico" type="image/icon type">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="..\styles\style.css">
+    <title>flashcards</title>
+
+    <script src="..\app\env.js" ></script>
+    <script src="..\app\utilities.js" ></script>
+    <script src="..\app\cookie.js" ></script>
+    <script src="..\app\request_handler.js" ></script>
+	<script src="..\app\authentication_handler.js" ></script>
+
+    <script>
+        
+        Utilities.start_connection_checker()
+
+        let request_handler = new Request_handler
+        let authentication_handler = new Authentication_handler
+
+    </script>
+
+</head>
+<body>
+
+    <div id="connection_lost">
+            <button class="connection_lost" style="cursor: default;"> <p style='font-weight: bold;'>server connection lost</p><p>trying to reconnect... </p></button>
+    </div>
+
+    <div style="margin: 0 auto; width: 500px;"><h1 style="margin-top: 28px;">flashcards</h1></div>
+    
+
+    <div class="container">
+        
+        
+
+        <br>
+
+        <form id="login_form" autocomplete="off">
+          <p>name</p>
+          <input type="text" id="name" name="name" maxlength="100"><br><br>
+          <p>password</p>
+          <input style="display: inline-block; width: 128px;" type="password" id="password" name="password" maxlength="50" placeholder="password">
+          <input style="display: inline-block; width: 128px;" type="password" id="password1" name="rpassword" maxlength="50" placeholder="repeat password">
+          <p class=" bi bi-eye-slash" id="togglePassword" style="display: inline-block;cursor: pointer;">show</p><br><br>
+
+
+        </form>
+
+        <p>profile picture (optional)</p>
+        <input id="imginput" type="file" name="myImage" accept="image/png, image/gif, image/jpeg" />
+        <br><br><br>
+
+        <div id="error_div"></div>
+
+        <button class="button_white" onclick="authentication_handler.signup(document.getElementById('login_form'))"> sign up </button>
+
+
+
+        <br><br><br>
+
+
+
+        <p>already have an account?</p>
+        <button class="button_white" onclick="location.href = '../index.html'"> log in </button>
+
+        <br><br><br>
+
+    </div>
+
+
+    <script>
+        const togglePassword = document.querySelector("#togglePassword")
+        const password = document.querySelector("#password")
+
+        const togglePassword1 = document.querySelector("#togglePassword1")
+        const password1 = document.querySelector("#password1")
+
+        togglePassword.addEventListener("click", function () {
+            const type = password.getAttribute("type") === "password" ? "text" : "password"
+            password.setAttribute("type", type)
+            this.classList.toggle("bi-eye")
+            const type1 = password1.getAttribute("type") === "password" ? "text" : "password"
+            password1.setAttribute("type", type1)
+            this.classList.toggle("bi-eye")
+        })
+
+    </script>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+
+    <link rel="icon" href="../assets/icon.ico" type="image/icon type">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="..\styles\style.css">
+    <title>flashcards</title>
+
+    <script src="..\app\env.js" ></script>
+    <script src="..\app\utilities.js" ></script>
+    <script src="..\app\cookie.js" ></script>
+    <script src="..\app\request_handler.js" ></script>
+	<script src="..\app\authentication_handler.js" ></script>
+
+    <script>
+
+        Utilities.start_connection_checker()
+        
+        let request_handler = new Request_handler
+        let authentication_handler = new Authentication_handler
+
+        const profile_pic_url = request_handler.get_profile_pic()
+
+        Cookie.setCookie('custom_profile_pic', 'void')
+        
+    </script>
+
+</head>
+<body>
+
+    <div id="connection_lost">
+            <button class="connection_lost" style="cursor: default;"> <p style='font-weight: bold;'>server connection lost</p><p>trying to reconnect... </p></button>
+    </div>
+
+    <div style="margin: 0 auto; width: 500px;">
+        <div id="full_header"> </div>
+    </div>
+
+    
+
+    <div class="container">
+        
+   
+        <br><br>
+<br>
+        
+        <p>change profile picture</p>
+        <input style="width: 220px;" id="imginput" type="file" name="myImage" accept="image/png, image/gif, image/jpeg" />
+        <p onclick="Cookie.setCookie('custom_profile_pic', 'true'); document.getElementById(`imginput`).style.visibility = `hidden`; this.style.color = `green`" style="margin-left: 20px; display: inline-block; cursor: pointer;"> set default </p><br><br>
+        <form id="edit_user_form" autocomplete="off">
+          <p>change name</p>
+          <input type="text" id="name" name="name" maxlength="100"><br><br>
+          <p >change password</p>
+          <input style="display: inline-block; width: 128px;" type="password" id="password" name="password" maxlength="50" placeholder="new password">
+          
+          <input style="display: inline-block; width: 128px;" type="password" id="password1" name="rpassword" maxlength="50" placeholder="repeat new password">
+          <p class=" bi bi-eye-slash" id="togglePassword" style="display: inline-block;cursor: pointer;">show</p><br><br>
+          <br>
+        </form>
+        <div id="profile_pic_preview_div"></div>
+        <div id="error_div"><br></div>
+        <button class="button_white" onclick="request_handler.edit_user(document.getElementById('edit_user_form'))" style="margin-right: 10px;"> apply changes </button>
+        <button class="button_white" onclick="location.href='profile.html'" style="margin-left: 10px;"> cancel </button>
+
+        <br><br><br><br><br><br><br>
+
+        <p>or</p>
+        <button class="button_white" id="delete_button" onclick="request_handler.delete_user()"> delete account </button>
+
+        <br><br>
+
+    </div>
+
+    <script>
+        const togglePassword = document.querySelector("#togglePassword")
+        const password = document.querySelector("#password")
+
+        const togglePassword1 = document.querySelector("#togglePassword1")
+        const password1 = document.querySelector("#password1")
+
+        togglePassword.addEventListener("click", function () {
+            const type = password.getAttribute("type") === "password" ? "text" : "password"
+            password.setAttribute("type", type)
+            this.classList.toggle("bi-eye")
+            const type1 = password1.getAttribute("type") === "password" ? "text" : "password"
+            password1.setAttribute("type", type1)
+            this.classList.toggle("bi-eye")
+        })
+
+    </script>
+
+    
+
+</body>
+</html>
